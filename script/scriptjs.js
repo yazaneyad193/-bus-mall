@@ -17,7 +17,7 @@ var trialsleft = 5;
 function MallPics(name, image) {
     this.image = image;
     this.name = name;
-    this.url = 'assets/' + image;
+    this.url = 'Img/' + image;
     this.counter = 0;
     this.timeShow = 0;
 
@@ -43,9 +43,7 @@ function pickAMall() {
         var midImage = Math.round(Math.random() * (arrryAllMallPics.length - 1));
         var rightImage = Math.round(Math.random() * (arrryAllMallPics.length - 1))
     } while (leftImage === midImage || leftImage === rightImage || midImage === rightImage);
-    console.log(leftImage);
-    console.log(rightImage);
-    console.log(midImage);
+
     renderMallPicst(leftImage, midImage, rightImage)
 }
 
@@ -65,26 +63,35 @@ new MallPics('chair', 'chair.jpg');
 new MallPics('pen', 'pen.jpg');
 
 pickAMall();
-mallSection.addEventListener('click', countGoats);
 
-function countGoats(event) {
+mallSection.addEventListener('click', countImg);
+
+function countImg(event) {
     var targetId = event.target.id;
     // console.log(targetId);
     if (trialsleft !== 0) { // we are checking if the user has trials left
         if (targetId === 'left_pic_img' || targetId === 'right_pic_img' || targetId === 'mid_pic_img') { // we are checking if the user clicked on the correct image
             var objectIndicator = event.target.getAttribute('src');
-            checkMallPic(objectIndicator);
-            pickAMall();
 
+            checkMallPic(objectIndicator);
+            numberShown(objectIndicator);
+            pickAMall();
 
         }
 
     } else {
-        mallSection.removeEventListener('click', countGoats);
+        mallSection.removeEventListener('click', countImg);
         console.log(arrayOfGoats);
     }
 }
 
+function numberShown(objectIndicator) {
+    for (let i = 0; i < arrryAllMallPics.length; i++) {
+        if (arrryAllMallPics[i].url === objectIndicator) {
+            arrryAllMallPics[i].timeShow++;
+        }
+    }
+}
 
 
 var results = document.getElementById("results");
