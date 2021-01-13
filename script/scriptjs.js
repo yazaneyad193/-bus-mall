@@ -1,8 +1,9 @@
 'use strict';
 // Get Elemnts by id
 
-var arrayAllMallPics = [];
+//Declare all Variables what i wants to use it
 
+var arrayAllMallPics = [];
 var leftPicImg = document.getElementById('left_pic_img');
 var midPictImg = document.getElementById('mid_pic_img');
 var rightPictImg = document.getElementById('right_pic_img');
@@ -32,12 +33,13 @@ function MallPics(image) {
     arrayAllMallPics.push(this);
 
 }
+//saving data to localStorage: setItem
 function storeData() {
 
     localStorage.setItem('order', JSON.stringify(arrayAllMallPics));
 
 }
-
+// Clear data in localStorage
 function clearLocalStorage() {
 
     localStorage.clear();
@@ -74,7 +76,7 @@ function renderMallPicst(leftImage, midImage, rightImage) {
 }
 
 function pickAMall() {
-
+    //will randomly generate three unique product images
 
     do {
         var leftImage = Math.round(Math.random() * (arrayAllMallPics.length - 1))
@@ -99,9 +101,6 @@ function pickAMall() {
         arrayAllMallPics[midImage],
         arrayAllMallPics[rightImage]
     )
-    /*console.log("leftImage" + arrayAllMallPics[leftImage].name, arrayAllMallPics[leftImage].timeShow);
-    console.log("midImage" + arrayAllMallPics[midImage].name, arrayAllMallPics[midImage].timeShow);
-    console.log("rightImage" + arrayAllMallPics[rightImage].name, arrayAllMallPics[rightImage].timeShow);*/
     renderMallPicst(leftImage, midImage, rightImage)
     //Calling function when know no images repeated
 }
@@ -149,7 +148,6 @@ function numberShown(objectIndicator) {
     }
 
 }
-
 
 var results = document.getElementById("results");
 var ul = document.createElement("ul");
@@ -244,10 +242,6 @@ function renderChart() {
         }
     });
 }
-
-
-
-
 function checkAvailability(selectedPicName) {
 
     for (var index = 0; index < shownImages.length; index++) {

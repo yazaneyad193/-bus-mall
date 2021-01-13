@@ -10,9 +10,9 @@
 
 <body>
     <header>
-        <h2>Welcome to Bus Mall View</h3>
+        <h2 id="welc">Welcome to Bus Mall View</h3>
     </header>
-    <p>yazan</p>
+
     <section id="mallAllPics">
         <div id="left_pic">
             <img id="left_pic_img" src="Img/bag.jpg" alt="bag">
@@ -28,25 +28,26 @@
         <div id="right_pic">
             <img id="right_pic_img" src="Img/banana.jpg" alt="banana">
 
-            <h2 id="right_pic_h2">banana</h2>
+            <p id="right_pic_h2">banana</p>
         </div>
     </section>
-    <button id="results">View Results</button>
+
     <section id="getLst">
     </section>
     <br>
     <br>
-    <section>
-        <canvas id="picChart" width="500" height="600"></canvas>
-    </section>
-
-    <section>
+    <section id="btn">
+        <button id="results">View Results</button>
         <button id="clearLocalStorage">Clear Data</button>
         <h3> Previous Orders</h3>
         <ul id="orders">
 
         </ul>
     </section>
+    <section>
+        <canvas id="picChart" width="500" height="600"></canvas>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="script/scriptjs.js"></script>
 </body>
